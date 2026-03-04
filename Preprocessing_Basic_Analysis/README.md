@@ -1,6 +1,6 @@
 # Preprocess + Basic Analysis Results
 
-This folder contains the preprocessing pipeline (in `preprocess.py`) and a quick baseline analysis of the r/place 2022 dataset (in `analysis.py`)
+This folder contains the preprocessing pipeline (in `preprocess.py`) and a quick analysis for a 6 hour timewindow of the r/place 2022 dataset (in `analysis.py`)
 
 ## Original File Size:
 21 GB
