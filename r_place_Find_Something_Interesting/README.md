@@ -1,5 +1,16 @@
 # Analysis — Predicting Pixel Survival
 
+## Quick Analysis Overview
+
+For this I was tasked with just finding something interesting about the r/place 2022 dataset. 
+
+### What’s included
+- `SamplePreprocess.py` - the preprocessing for the sample dataset made
+- `TrainingPreprocess.py` - the preprocessing for the training and testing datasets
+- `research.py` - building my ML model and making the visualizations to describe my findings
+
+So now let's go into what I actually decided to do for this analysis!
+
 ## What I did
 I trained a machine learning model to predict whether a pixel placement in r/place 2022 would **survive at least 30 minutes** (not be overwritten). This model shows that pixel death is highly predictable from local conflict signals, while survival is harder and often depends on broader coordination. Using SHAP for interpretation, the strongest predictors of survival were:
 
