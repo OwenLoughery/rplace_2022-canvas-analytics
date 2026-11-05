@@ -3,10 +3,10 @@
 This folder contains the preprocessing pipeline (in `preprocess.py`) and a quick analysis for a 6 hour time-window of the r/place 2022 dataset (in `analysis.py`)
 
 ## Original File Size:
-21 GB
+~21.7 GB
 
 ## Size of pre-processed results
-1.92 GB
+~2.1 GB
 
 **Timeframe:** 2022-04-01 12 to 2022-04-01 18
 

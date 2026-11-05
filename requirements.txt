@@ -1,0 +1,10 @@
+duckdb
+pandas
+numpy
+scikit-learn
+plotly
+kaleido
+shap
+matplotlib
+plotnine
+tabulate

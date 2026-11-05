@@ -1,0 +1,9 @@
+.idea/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# raw and processed data (too large for git)
+2022_place_canvas_history.csv
+*.parquet

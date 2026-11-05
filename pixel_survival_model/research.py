@@ -127,25 +127,27 @@ plot_df = test.sample(n=n, random_state=42).copy()
 
 
 bins = 120
-plot_df["x_bin"] = pd.cut(plot_df["x"], bins=bins, labels=False)
-plot_df["y_bin"] = pd.cut(plot_df["y"], bins=bins, labels=False)
+plot_df["x_bin"], x_edges = pd.cut(plot_df["x"], bins=bins, labels=False, retbins=True)
+plot_df["y_bin"], y_edges = pd.cut(plot_df["y"], bins=bins, labels=False, retbins=True)
 
+# average predicted score per cell, laid out as a 120 x 120 grid
 heat = (
-    plot_df.groupby(["x_bin", "y_bin"], as_index=False)["survival_prob"]
+    plot_df.groupby(["y_bin", "x_bin"])["survival_prob"]
     .mean()
-    .rename(columns={"survival_prob": "avg_survival_prob"})
+    .unstack()
+    .reindex(index=range(bins), columns=range(bins))
 )
 
-fig_heat = px.density_heatmap(
+fig_heat = px.imshow(
     heat,
-    x="x_bin",
-    y="y_bin",
-    z="avg_survival_prob",
+    x=(x_edges[:-1] + x_edges[1:]) / 2,
+    y=(y_edges[:-1] + y_edges[1:]) / 2,
     color_continuous_scale="Viridis",
-    title="Predicted Pixel Survival Probability Map (Binned Heatmap)",
-    labels={"avg_survival_prob": "Avg Predicted Survival Probability", "x_bin": "X Bin", "y_bin": "Y Bin"}
+    zmin=0,
+    title="Average Predicted Survival Score by Region (Test Period)",
+    labels={"x": "Canvas X", "y": "Canvas Y", "color": "Average predicted<br>survival score"},
 )
-fig_heat.update_yaxes(autorange="reversed")
+fig_heat.update_layout(width=760, height=700, plot_bgcolor="#d4d4d4")  # grey = cells with no test placements
 fig_heat.show()
 
 

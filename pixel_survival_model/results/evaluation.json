@@ -1,0 +1,69 @@
+{
+  "description": "Existing Random Forest from research.py, evaluated on the time-based test set (last 20% of the sample). No tuning.",
+  "rows": {
+    "train": 576276,
+    "test": 144069
+  },
+  "survivor_base_rate": {
+    "train": 0.24966682631239198,
+    "test": 0.2357897951675933
+  },
+  "threshold": 0.5,
+  "confusion_matrix": {
+    "layout": "rows = actual, columns = predicted, order [overwritten (0), survived (1)]",
+    "values": [
+      [
+        107788,
+        2311
+      ],
+      [
+        31399,
+        2571
+      ]
+    ]
+  },
+  "accuracy": {
+    "model": 0.7660148956402835,
+    "majority_class_baseline": 0.7642102048324066
+  },
+  "per_class": {
+    "overwritten (0)": {
+      "precision": 0.7744114033638199,
+      "recall": 0.9790098002706655,
+      "f1-score": 0.864773793955537,
+      "support": 110099.0
+    },
+    "survived (1)": {
+      "precision": 0.5266284309709136,
+      "recall": 0.07568442743597292,
+      "f1-score": 0.1323483990528158,
+      "support": 33970.0
+    }
+  },
+  "roc_auc": 0.7531420743195336,
+  "average_precision": {
+    "model": 0.43837597772367803,
+    "survivor_prevalence_baseline": 0.2357897951675933
+  },
+  "model_settings": {
+    "n_estimators": 150,
+    "random_state": 42,
+    "class_weight": "balanced",
+    "features": [
+      "minutes_since_start",
+      "prior_changes_at_pixel",
+      "time_since_last_change_sec",
+      "local_event_count_10m",
+      "local_unique_users_10m",
+      "local_unique_colors_10m"
+    ]
+  },
+  "versions": {
+    "python": "3.12.3",
+    "scikit-learn": "1.5.2",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "duckdb": "1.4.3",
+    "matplotlib": "3.9.2"
+  }
+}
